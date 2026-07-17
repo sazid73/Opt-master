@@ -27,7 +27,7 @@ if (isMongo) {
     .catch(err => console.error("MongoDB connection error:", err));
 
   const SettingsSchema = new mongoose.Schema({
-    adminPasscode: { type: String, default: "admin123" },
+    adminPasscode: { type: String, default: "hello123" },
     maxTabSwitches: { type: Number, default: 3 }
   }, { strict: false });
 
@@ -69,7 +69,7 @@ async function readDB() {
     try {
       let settings = await SettingsModel.findOne();
       if (!settings) {
-        settings = await SettingsModel.create({ adminPasscode: "admin123", maxTabSwitches: 3 });
+        settings = await SettingsModel.create({ adminPasscode: "hello123", maxTabSwitches: 3 });
       }
       const exams = await ExamModel.find().lean();
       const submissions = await SubmissionModel.find().sort({ date: -1 }).lean();
@@ -83,7 +83,7 @@ async function readDB() {
       };
     } catch (err) {
       console.error("Error reading from MongoDB, falling back to default", err);
-      return { settings: { adminPasscode: "admin123", maxTabSwitches: 3 }, exams: [], submissions: [] };
+      return { settings: { adminPasscode: "hello123", maxTabSwitches: 3 }, exams: [], submissions: [] };
     }
   }
 
@@ -93,7 +93,7 @@ async function readDB() {
     return JSON.parse(data);
   } catch (error) {
     console.error("Error reading database file, using fallback empty structure", error);
-    return { settings: { adminPasscode: "admin123", maxTabSwitches: 3 }, exams: [], submissions: [] };
+    return { settings: { adminPasscode: "hello123", maxTabSwitches: 3 }, exams: [], submissions: [] };
   }
 }
 

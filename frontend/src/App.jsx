@@ -1104,7 +1104,7 @@ function App() {
                   type="password"
                   required
                   className="form-input"
-                  placeholder="Enter Passcode (default: admin123)"
+                  placeholder="Enter Passcode"
                   value={passcodeAttempt}
                   onChange={(e) => setPasscodeAttempt(e.target.value)}
                   style={{ textAlign: 'center' }}
@@ -1954,6 +1954,9 @@ function App() {
       {mode === 'exam' && renderExamScreen()}
       {mode === 'finished' && renderFinishedScreen()}
       {mode === 'admin' && renderAdminScreen()}
+      <footer style={{ textAlign: 'center', padding: '24px', fontSize: '13px', color: 'var(--text-secondary)' }}>
+        Developed by Sazid
+      </footer>
     </>
   );
 }
