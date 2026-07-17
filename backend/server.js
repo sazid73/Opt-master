@@ -396,6 +396,15 @@ app.delete('/api/submissions/:id', async (req, res) => {
   res.json({ success: true, message: 'Submission deleted successfully' });
 });
 
+// Health Check Endpoint
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    database: isMongo ? 'mongodb' : 'json_file',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Start Server
 app.listen(PORT, () => {
   console.log(`OPT evaluation backend server running on port ${PORT}`);
