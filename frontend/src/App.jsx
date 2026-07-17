@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
+console.log("OPT Master API Base configured to:", API_BASE);
 
 // Helper function to format time (seconds to MM:SS)
 const formatTimer = (seconds) => {
