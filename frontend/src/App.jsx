@@ -6,7 +6,7 @@ import {
   ShieldAlert, Play, Pause, Plus, Edit, PlusCircle, CheckSquare, Volume2, ListPlus
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
 
 // Helper function to format time (seconds to MM:SS)
 const formatTimer = (seconds) => {
