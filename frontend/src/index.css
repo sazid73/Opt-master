@@ -867,3 +867,103 @@ button, input, select, textarea {
   from { transform: translateY(0); }
   to { transform: translateY(-4px); }
 }
+
+/* =========================================
+   Mobile & Tablet Responsiveness Enhancements
+   ========================================= */
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 16px;
+    height: 60px;
+  }
+  
+  .topbar-logo span {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .layout-grid {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .welcome-card {
+    padding: 24px 16px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-content-large {
+    padding: 20px;
+  }
+
+  .exam-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .exam-timer-card {
+    justify-content: center;
+  }
+  
+  .btn-lg {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 24px !important;
+  }
+  
+  .stat-number {
+    font-size: 20px;
+  }
+  
+  .split-pane {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .passage-pane {
+    max-height: 40vh;
+  }
+  
+  .question-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-logo span {
+    display: none; /* Hide text, just show shield icon on very small phones */
+  }
+  
+  .question-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .admin-table th, .admin-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .section-tab-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .modal-body {
+    padding: 16px 0;
+  }
+}
