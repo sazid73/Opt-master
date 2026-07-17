@@ -5,495 +5,340 @@
   },
   "exams": [
     {
-      "id": "exam_set_a",
-      "title": "Oxford Placement Test - Practice Set (CEFR Evaluation)",
-      "description": "A shorter diagnostic exam consisting of grammar, listening, and reading questions. Best for quick evaluations.",
-      "duration": 1800,
+      "id": "opt_full_test",
+      "title": "Oxford Placement Test — Full CEFR Assessment",
+      "description": "Official-format OPT covering Use of English (Grammar), Listening Comprehension, and Reading Comprehension. 40 questions across all CEFR levels (A1–C2). Duration: 50 minutes.",
+      "duration": 3000,
       "questions": [
         {
-          "id": "sa_q1",
-          "type": "grammar",
-          "section": "use_of_english",
+          "id": "g1", "type": "grammar", "section": "use_of_english",
           "text": "I'm a student ____ university. I'm studying English.",
-          "options": { "a": "at", "b": "in", "c": "of", "d": "on" },
-          "correct": "a"
+          "options": {"a": "at", "b": "in", "c": "of", "d": "on"}, "correct": "a"
         },
         {
-          "id": "sa_q2",
-          "type": "grammar",
-          "section": "use_of_english",
+          "id": "g2", "type": "grammar", "section": "use_of_english",
           "text": "There is a green scarf on the chair, ____ is it?",
-          "options": { "a": "What", "b": "Where", "c": "Whose", "d": "Which" },
-          "correct": "c"
+          "options": {"a": "What", "b": "Where", "c": "Whose", "d": "Which"}, "correct": "c"
         },
         {
-          "id": "sa_q3",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "I don't know if they missed me or my cooking. I had ___ walked through the door when they were demanding supper!",
-          "options": { "a": "really", "b": "barely", "c": "nearly", "d": "simply" },
-          "correct": "b"
+          "id": "g3", "type": "grammar", "section": "use_of_english",
+          "text": "My brother works ____ a large software company.",
+          "options": {"a": "with", "b": "for", "c": "under", "d": "along"}, "correct": "b"
         },
         {
-          "id": "sa_q4",
-          "type": "grammar",
-          "section": "use_of_english",
+          "id": "g4", "type": "grammar", "section": "use_of_english",
+          "text": "We arrived ____ the airport two hours before our flight.",
+          "options": {"a": "within", "b": "in", "c": "at", "d": "for"}, "correct": "c"
+        },
+        {
+          "id": "g5", "type": "grammar", "section": "use_of_english",
+          "text": "She isn't interested ____ watching horror movies.",
+          "options": {"a": "to", "b": "in", "c": "for", "d": "after"}, "correct": "b"
+        },
+        {
+          "id": "g6", "type": "grammar", "section": "use_of_english",
+          "text": "This is the restaurant ____ we first met.",
+          "options": {"a": "where", "b": "when", "c": "why", "d": "what"}, "correct": "a"
+        },
+        {
+          "id": "g7", "type": "grammar", "section": "use_of_english",
+          "text": "If I ____ enough money, I'd buy a new laptop.",
+          "options": {"a": "have", "b": "has", "c": "had", "d": "were having"}, "correct": "c"
+        },
+        {
+          "id": "g8", "type": "grammar", "section": "use_of_english",
+          "text": "You should look ____ the meaning of that word.",
+          "options": {"a": "at", "b": "for", "c": "in", "d": "up"}, "correct": "d"
+        },
+        {
+          "id": "g9", "type": "grammar", "section": "use_of_english",
+          "text": "They have lived here ____ 2018.",
+          "options": {"a": "from", "b": "since", "c": "for", "d": "within"}, "correct": "b"
+        },
+        {
+          "id": "g10", "type": "grammar", "section": "use_of_english",
+          "text": "The train was delayed, ____ we arrived late.",
+          "options": {"a": "as", "b": "for", "c": "so", "d": "when"}, "correct": "c"
+        },
+        {
+          "id": "g11", "type": "grammar", "section": "use_of_english",
+          "text": "I haven't seen him ____ a long time.",
+          "options": {"a": "after", "b": "for", "c": "from", "d": "until"}, "correct": "b"
+        },
+        {
+          "id": "g12", "type": "grammar", "section": "use_of_english",
+          "text": "Please turn ____ the lights before leaving.",
+          "options": {"a": "off", "b": "up", "c": "after", "d": "around"}, "correct": "a"
+        },
+        {
+          "id": "g13", "type": "grammar", "section": "use_of_english",
+          "text": "We were looking forward ____ everyone at the reunion.",
+          "options": {"a": "to see", "b": "for seeing", "c": "to seeing", "d": "to have seen"}, "correct": "c"
+        },
+        {
+          "id": "g14", "type": "grammar", "section": "use_of_english",
+          "text": "Hardly had I sat down ____ the phone rang.",
+          "options": {"a": "as", "b": "when", "c": "until", "d": "after"}, "correct": "b"
+        },
+        {
+          "id": "g15", "type": "grammar", "section": "use_of_english",
+          "text": "I don't know if they missed me or my cooking. I had ____ walked through the door when they were demanding supper!",
+          "options": {"a": "really", "b": "barely", "c": "nearly", "d": "simply"}, "correct": "b"
+        },
+        {
+          "id": "g16", "type": "grammar", "section": "use_of_english",
           "text": "The tutor says it's always better to ____ personal experience for inspiration.",
-          "options": { "a": "draw on", "b": "dwell on", "c": "resort to", "d": "revert to" },
+          "options": {"a": "draw on", "b": "dwell on", "c": "resort to", "d": "revert to"}, "correct": "a"
+        },
+        {
+          "id": "g17", "type": "grammar", "section": "use_of_english",
+          "text": "Very much so, ____ it provides further evidence on the link between greener lifestyles and well-being.",
+          "options": {"a": "as such", "b": "in that", "c": "just as", "d": "by which"}, "correct": "b"
+        },
+        {
+          "id": "g18", "type": "grammar", "section": "use_of_english",
+          "text": "I did a lot of preparation and ____ for the bad weather, I would've made it to the top.",
+          "options": {"a": "unless it was", "b": "had it not been", "c": "hadn't it been", "d": "was it not"}, "correct": "b"
+        },
+        {
+          "id": "g19", "type": "grammar", "section": "use_of_english",
+          "text": "It's time ____ a new car.",
+          "options": {"a": "I should buy", "b": "I buy", "c": "I bought", "d": "I had bought"}, "correct": "c"
+        },
+        {
+          "id": "g20", "type": "grammar", "section": "use_of_english",
+          "text": "Go for it. Don't let that hold you ____.",
+          "options": {"a": "in", "b": "off", "c": "back", "d": "down"}, "correct": "c"
+        },
+        {
+          "id": "g21", "type": "grammar", "section": "use_of_english",
+          "text": "She ____ have left already; her coat is gone.",
+          "options": {"a": "can", "b": "must", "c": "should", "d": "would"}, "correct": "b"
+        },
+        {
+          "id": "g22", "type": "grammar", "section": "use_of_english",
+          "text": "The report needs ____ before Friday.",
+          "options": {"a": "to finish", "b": "finishing", "c": "to be finished", "d": "being finished"}, "correct": "c"
+        },
+        {
+          "id": "g23", "type": "grammar", "section": "use_of_english",
+          "text": "Not only ____ late, but he also forgot the documents.",
+          "options": {"a": "he arrived", "b": "did he arrive", "c": "he did arrive", "d": "arrived he"}, "correct": "b"
+        },
+        {
+          "id": "g24", "type": "grammar", "section": "use_of_english",
+          "text": "The politician's speech was so ____ that the audience started leaving halfway through.",
+          "options": {"a": "tedious", "b": "tremendous", "c": "tentative", "d": "tangible"}, "correct": "a"
+        },
+        {
+          "id": "g25", "type": "grammar", "section": "use_of_english",
+          "text": "By the time we get there, the film ____.",
+          "options": {"a": "will start", "b": "will have started", "c": "starts", "d": "is starting"}, "correct": "b"
+        },
+        {
+          "id": "l1", "type": "listening", "section": "listening",
+          "text": "Listen to the dialogue. What does the wife mean by her first comment?",
+          "audioText": "Wife: Had we known that they were going to build a motorway so close to us, I'd have thought twice about us buying this house.",
+          "options": {"a": "I wish we hadn't bought this house.", "b": "We ought to think again about buying this house.", "c": "You should have reconsidered buying this house."},
           "correct": "a"
         },
         {
-          "id": "sa_q5",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "My brother works ___ a large software company.",
-          "options": { "a": "with", "b": "for", "c": "under", "d": "along" },
-          "correct": "b"
-        },
-        {
-          "id": "sa_q6",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "We arrived ___ the airport two hours before our flight.",
-          "options": { "a": "within", "b": "in", "c": "at", "d": "for" },
-          "correct": "c"
-        },
-        {
-          "id": "sa_q7",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "She isn't interested ___ watching horror movies.",
-          "options": { "a": "to", "b": "in", "c": "for", "d": "after" },
-          "correct": "b"
-        },
-        {
-          "id": "sa_q8",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "This is the restaurant ___ we first met.",
-          "options": { "a": "where", "b": "when", "c": "why", "d": "what" },
-          "correct": "a"
-        },
-        {
-          "id": "sa_q9",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "If I ___ enough money, I'd buy a new laptop.",
-          "options": { "a": "have", "b": "has", "c": "had", "d": "were having" },
-          "correct": "c"
-        },
-        {
-          "id": "sa_q10",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "You should look ___ the meaning of that word.",
-          "options": { "a": "at", "b": "for", "c": "in", "d": "up" },
-          "correct": "d"
-        },
-        {
-          "id": "sa_q11",
-          "type": "listening",
-          "section": "listening",
+          "id": "l2", "type": "listening", "section": "listening",
           "text": "Listen to the dialogue. What does the man imply?",
           "audioText": "Man: I can barely keep my eyes open after that meeting. Woman: Go get some coffee, we still have another session in ten minutes.",
-          "options": {
-            "a": "He feels extremely tired.",
-            "b": "He enjoyed the meeting.",
-            "c": "He is planning to go to sleep now."
-          },
+          "options": {"a": "He feels extremely tired.", "b": "He enjoyed the meeting.", "c": "He is planning to go to sleep now."},
           "correct": "a"
         },
         {
-          "id": "sa_q12",
-          "type": "listening",
-          "section": "listening",
+          "id": "l3", "type": "listening", "section": "listening",
           "text": "Listen to the dialogue. What does the woman regret?",
           "audioText": "Woman: I wish I'd listened to your advice. Man: Well, it's too late to worry about that now, we just have to fix the damage.",
-          "options": {
-            "a": "She plans to follow the advice later.",
-            "b": "She regrets not listening to the man's advice.",
-            "c": "She forgot what the advice was."
-          },
+          "options": {"a": "She plans to follow the advice later.", "b": "She regrets not listening to the man's advice.", "c": "She forgot what the advice was."},
           "correct": "b"
         },
         {
-          "id": "sa_q13",
-          "type": "listening",
-          "section": "listening",
+          "id": "l4", "type": "listening", "section": "listening",
           "text": "Listen to the announcement. What is the cause of the train delay?",
           "audioText": "Attention passengers, the ten fifteen train to London Victoria has been delayed by approximately twenty minutes due to signaling problems. We apologize for the delay.",
-          "options": {
-            "a": "Bad weather",
-            "b": "Signaling issues",
-            "c": "Passenger congestion"
-          },
+          "options": {"a": "Bad weather", "b": "Signaling issues", "c": "Passenger congestion"},
           "correct": "b"
         },
         {
-          "id": "sa_q14",
-          "type": "reading",
-          "section": "reading",
-          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition.",
+          "id": "l5", "type": "listening", "section": "listening",
+          "text": "Listen to the dialogue. What does the man mean?",
+          "audioText": "Man: If I'd remembered her birthday, she wouldn't have been so upset.",
+          "options": {"a": "He forgot her birthday and she was upset.", "b": "He remembered her birthday too late.", "c": "She wasn't upset because he remembered."},
+          "correct": "a"
+        },
+        {
+          "id": "l6", "type": "listening", "section": "listening",
+          "text": "Listen to the dialogue. What does the woman suggest?",
+          "audioText": "Woman: It's about time we replaced this old washing machine. Man: I suppose you're right. It has been breaking down quite often lately.",
+          "options": {"a": "The washing machine is still quite new.", "b": "The washing machine should be replaced now.", "c": "The washing machine was replaced recently."},
+          "correct": "b"
+        },
+        {
+          "id": "l7", "type": "listening", "section": "listening",
+          "text": "Listen to the conversation. Where does this conversation most likely take place?",
+          "audioText": "Receptionist: Good morning. Do you have a reservation? Guest: Yes, it's under the name Thompson. I booked a double room for three nights. Receptionist: Let me check. Yes, here it is. Room four twelve. Here's your key card.",
+          "options": {"a": "At a restaurant", "b": "At a hotel", "c": "At an airport"},
+          "correct": "b"
+        },
+        {
+          "id": "l8", "type": "listening", "section": "listening",
+          "text": "Listen to the message. What is the speaker asking the listener to do?",
+          "audioText": "Hi Sarah, it's David. I'm afraid I won't be able to make it to the meeting this afternoon. Could you take notes for me and email them over? I'd really appreciate it. Thanks.",
+          "options": {"a": "Cancel the meeting.", "b": "Take notes and send them by email.", "c": "Reschedule the meeting for tomorrow."},
+          "correct": "b"
+        },
+        {
+          "id": "r1", "type": "reading", "section": "reading",
+          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition. Her success has made her the face of this rapidly growing sport.",
           "text": "According to the text, Courtney Gordon first achieved national success in which sport?",
-          "options": {
-            "a": "Weightlifting",
-            "b": "Shot-put",
-            "c": "Archery",
-            "d": "Bodybuilding"
-          },
+          "options": {"a": "Weightlifting", "b": "Shot-put", "c": "Archery", "d": "Bodybuilding"},
           "correct": "c"
         },
         {
-          "id": "sa_q15",
-          "type": "reading",
-          "section": "reading",
-          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition.",
+          "id": "r2", "type": "reading", "section": "reading",
+          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition. Her success has made her the face of this rapidly growing sport.",
           "text": "What is the writer's main purpose in this passage?",
-          "options": {
-            "a": "To describe Courtney Gordon's physical appearance.",
-            "b": "To trace the development of Courtney Gordon's sporting career.",
-            "c": "To explain why weightlifting is a rapidly growing sport.",
-            "d": "To compare archery and shot-put."
-          },
+          "options": {"a": "To describe Courtney Gordon's physical appearance.", "b": "To trace the development of Courtney Gordon's sporting career.", "c": "To explain why weightlifting is a rapidly growing sport.", "d": "To compare archery and shot-put."},
           "correct": "b"
+        },
+        {
+          "id": "r3", "type": "reading", "section": "reading",
+          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition. Her success has made her the face of this rapidly growing sport.",
+          "text": "What does the phrase 'strongest woman on Earth' refer to Courtney Gordon's success in?",
+          "options": {"a": "Weightlifting", "b": "Shot-put", "c": "Archery", "d": "Bodybuilding"},
+          "correct": "a"
+        },
+        {
+          "id": "r4", "type": "reading", "section": "reading",
+          "passage": "Recent studies have shown that spending as little as two hours per week in natural environments — parks, woodlands, beaches — is associated with significantly higher levels of well-being and life satisfaction. The research, which surveyed over 20,000 participants, found that the benefits applied regardless of age, gender, or socioeconomic background. Interestingly, visiting natural spaces for less than two hours showed no measurable improvement. The findings suggest that regular, sustained contact with nature is crucial for maintaining good mental health.",
+          "text": "What is the minimum weekly time in nature linked to improved well-being?",
+          "options": {"a": "One hour", "b": "Two hours", "c": "Three hours", "d": "Thirty minutes"},
+          "correct": "b"
+        },
+        {
+          "id": "r5", "type": "reading", "section": "reading",
+          "passage": "Recent studies have shown that spending as little as two hours per week in natural environments — parks, woodlands, beaches — is associated with significantly higher levels of well-being and life satisfaction. The research, which surveyed over 20,000 participants, found that the benefits applied regardless of age, gender, or socioeconomic background. Interestingly, visiting natural spaces for less than two hours showed no measurable improvement. The findings suggest that regular, sustained contact with nature is crucial for maintaining good mental health.",
+          "text": "What can be inferred from the passage about visits to nature lasting less than two hours per week?",
+          "options": {"a": "They are harmful to mental health.", "b": "They produce the same benefits as longer visits.", "c": "They do not produce measurable well-being improvements.", "d": "They are more common among older adults."},
+          "correct": "c"
+        },
+        {
+          "id": "r6", "type": "reading", "section": "reading",
+          "passage": "The concept of 'urban heat islands' describes the phenomenon whereby cities experience markedly higher temperatures than surrounding rural areas. This is primarily attributed to the prevalence of heat-absorbing materials such as concrete and asphalt, reduced vegetation cover, and waste heat generated by human activities including transport and air conditioning. Paradoxically, the widespread use of air conditioning, while providing relief indoors, exacerbates outdoor temperatures by expelling hot air into the street environment.",
+          "text": "According to the passage, which of the following is described as paradoxical?",
+          "options": {"a": "The use of concrete in cities.", "b": "Air conditioning cooling indoors but heating outdoors.", "c": "The reduction of vegetation in urban areas.", "d": "The difference between urban and rural temperatures."},
+          "correct": "b"
+        },
+        {
+          "id": "r7", "type": "reading", "section": "reading",
+          "passage": "The concept of 'urban heat islands' describes the phenomenon whereby cities experience markedly higher temperatures than surrounding rural areas. This is primarily attributed to the prevalence of heat-absorbing materials such as concrete and asphalt, reduced vegetation cover, and waste heat generated by human activities including transport and air conditioning. Paradoxically, the widespread use of air conditioning, while providing relief indoors, exacerbates outdoor temperatures by expelling hot air into the street environment.",
+          "text": "The word 'exacerbates' in the passage is closest in meaning to:",
+          "options": {"a": "reduces", "b": "monitors", "c": "worsens", "d": "stabilizes"},
+          "correct": "c"
         }
       ]
     },
     {
-      "id": "exam_set_b",
-      "title": "Oxford Placement Test - Set B (Full Evaluation)",
-      "description": "The official comprehensive Oxford Placement Test containing a full bank of Grammar, dialogue-based situations, Listening tasks, and Courtney Gordon Reading modules.",
-      "duration": 3600,
+      "id": "opt_quick_test",
+      "title": "Oxford Placement Test — Quick Diagnostic",
+      "description": "A shorter 15-question OPT diagnostic covering Grammar, Listening, and Reading. Ideal for quick CEFR screening before a full assessment. Duration: 20 minutes.",
+      "duration": 1200,
       "questions": [
         {
-          "id": "sb_q1",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "I'm a student ____ university. I'm studying English.",
-          "options": { "a": "at", "b": "in", "c": "of", "d": "on" },
+          "id": "q1", "type": "grammar", "section": "use_of_english",
+          "text": "I'm a student ____ university.",
+          "options": {"a": "at", "b": "in", "c": "of", "d": "on"}, "correct": "a"
+        },
+        {
+          "id": "q2", "type": "grammar", "section": "use_of_english",
+          "text": "She isn't interested ____ watching horror movies.",
+          "options": {"a": "to", "b": "in", "c": "for", "d": "after"}, "correct": "b"
+        },
+        {
+          "id": "q3", "type": "grammar", "section": "use_of_english",
+          "text": "If I ____ enough money, I'd buy a new laptop.",
+          "options": {"a": "have", "b": "has", "c": "had", "d": "were having"}, "correct": "c"
+        },
+        {
+          "id": "q4", "type": "grammar", "section": "use_of_english",
+          "text": "They have lived here ____ 2018.",
+          "options": {"a": "from", "b": "since", "c": "for", "d": "within"}, "correct": "b"
+        },
+        {
+          "id": "q5", "type": "grammar", "section": "use_of_english",
+          "text": "We were looking forward ____ everyone at the reunion.",
+          "options": {"a": "to see", "b": "for seeing", "c": "to seeing", "d": "to have seen"}, "correct": "c"
+        },
+        {
+          "id": "q6", "type": "grammar", "section": "use_of_english",
+          "text": "Hardly had I sat down ____ the phone rang.",
+          "options": {"a": "as", "b": "when", "c": "until", "d": "after"}, "correct": "b"
+        },
+        {
+          "id": "q7", "type": "grammar", "section": "use_of_english",
+          "text": "Not only ____ late, but he also forgot the documents.",
+          "options": {"a": "he arrived", "b": "did he arrive", "c": "he did arrive", "d": "arrived he"}, "correct": "b"
+        },
+        {
+          "id": "q8", "type": "grammar", "section": "use_of_english",
+          "text": "By the time we get there, the film ____.",
+          "options": {"a": "will start", "b": "will have started", "c": "starts", "d": "is starting"}, "correct": "b"
+        },
+        {
+          "id": "q9", "type": "listening", "section": "listening",
+          "text": "Listen to the dialogue. What does the man imply?",
+          "audioText": "Man: I can barely keep my eyes open after that meeting. Woman: Go get some coffee, we still have another session in ten minutes.",
+          "options": {"a": "He feels extremely tired.", "b": "He enjoyed the meeting.", "c": "He is planning to go to sleep now."},
           "correct": "a"
         },
         {
-          "id": "sb_q2",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "There is a green scarf on the chair, ____ is it?",
-          "options": { "a": "What", "b": "Where", "c": "Whose", "d": "Which" },
+          "id": "q10", "type": "listening", "section": "listening",
+          "text": "Listen to the announcement. What is the cause of the train delay?",
+          "audioText": "Attention passengers, the ten fifteen train to London Victoria has been delayed by approximately twenty minutes due to signaling problems. We apologize for the delay.",
+          "options": {"a": "Bad weather", "b": "Signaling issues", "c": "Passenger congestion"},
+          "correct": "b"
+        },
+        {
+          "id": "q11", "type": "listening", "section": "listening",
+          "text": "Listen to the message. What is the speaker asking?",
+          "audioText": "Hi Sarah, it's David. I'm afraid I won't be able to make it to the meeting this afternoon. Could you take notes for me and email them over? Thanks.",
+          "options": {"a": "Cancel the meeting.", "b": "Take notes and send them by email.", "c": "Reschedule the meeting for tomorrow."},
+          "correct": "b"
+        },
+        {
+          "id": "q12", "type": "reading", "section": "reading",
+          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion.",
+          "text": "According to the text, Courtney Gordon first achieved national success in which sport?",
+          "options": {"a": "Weightlifting", "b": "Shot-put", "c": "Archery", "d": "Bodybuilding"},
           "correct": "c"
         },
         {
-          "id": "sb_q3",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "I don't know if they missed me or my cooking. I had ___ walked through the door when they were demanding supper!",
-          "options": { "a": "really", "b": "barely", "c": "nearly", "d": "simply" },
+          "id": "q13", "type": "reading", "section": "reading",
+          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion.",
+          "text": "What is the writer's main purpose in this passage?",
+          "options": {"a": "To describe her physical appearance.", "b": "To trace the development of her sporting career.", "c": "To explain why weightlifting is growing.", "d": "To compare archery and shot-put."},
           "correct": "b"
         },
         {
-          "id": "sb_q4",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "The tutor says it's always better to ____ personal experience for inspiration.",
-          "options": { "a": "draw on", "b": "dwell on", "c": "resort to", "d": "revert to" },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q5",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "Very much so, ____ it provides further evidence on the link between greener lifestyles and well-being.",
-          "options": { "a": "as such", "b": "in that", "c": "just as", "d": "by which" },
+          "id": "q14", "type": "reading", "section": "reading",
+          "passage": "Recent studies have shown that spending as little as two hours per week in natural environments is associated with significantly higher levels of well-being. The research found that the benefits applied regardless of age, gender, or socioeconomic background. Visiting natural spaces for less than two hours showed no measurable improvement.",
+          "text": "What is the minimum weekly time in nature linked to improved well-being?",
+          "options": {"a": "One hour", "b": "Two hours", "c": "Three hours", "d": "Thirty minutes"},
           "correct": "b"
         },
         {
-          "id": "sb_q6",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "I did a lot of preparation and ___ for the bad weather, I would've made it to the top.",
-          "options": { "a": "unless it was", "b": "had it not been", "c": "hadn't it been", "d": "was it not" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q7",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "It's time ___ a new car.",
-          "options": { "a": "I should buy", "b": "I buy", "c": "I bought", "d": "I had bought" },
+          "id": "q15", "type": "reading", "section": "reading",
+          "passage": "Recent studies have shown that spending as little as two hours per week in natural environments is associated with significantly higher levels of well-being. The research found that the benefits applied regardless of age, gender, or socioeconomic background. Visiting natural spaces for less than two hours showed no measurable improvement.",
+          "text": "Visits to nature lasting less than two hours per week:",
+          "options": {"a": "Are harmful to mental health.", "b": "Produce the same benefits as longer visits.", "c": "Do not produce measurable improvements.", "d": "Are more common among older adults."},
           "correct": "c"
-        },
-        {
-          "id": "sb_q8",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "Go for it. Don't let that hold you ____",
-          "options": { "a": "in", "b": "off", "c": "back", "d": "down" },
-          "correct": "c"
-        },
-        {
-          "id": "sb_q9",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "My brother works ___ a large software company.",
-          "options": { "a": "with", "b": "for", "c": "under", "d": "along" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q10",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "We arrived ___ the airport two hours before our flight.",
-          "options": { "a": "within", "b": "in", "c": "at", "d": "for" },
-          "correct": "c"
-        },
-        {
-          "id": "sb_q11",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "She isn't interested ___ watching horror movies.",
-          "options": { "a": "to", "b": "in", "c": "for", "d": "after" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q12",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "This is the restaurant ___ we first met.",
-          "options": { "a": "where", "b": "when", "c": "why", "d": "what" },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q13",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "If I ___ enough money, I'd buy a new laptop.",
-          "options": { "a": "have", "b": "has", "c": "had", "d": "were having" },
-          "correct": "c"
-        },
-        {
-          "id": "sb_q14",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "You should look ___ the meaning of that word.",
-          "options": { "a": "at", "b": "for", "c": "in", "d": "up" },
-          "correct": "d"
-        },
-        {
-          "id": "sb_q15",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "They have lived here ___ 2018.",
-          "options": { "a": "from", "b": "since", "c": "for", "d": "within" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q16",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "The train was delayed, ___ we arrived late.",
-          "options": { "a": "as", "b": "for", "c": "so", "d": "when" },
-          "correct": "c"
-        },
-        {
-          "id": "sb_q17",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "I haven't seen him ___ a long time.",
-          "options": { "a": "after", "b": "for", "c": "from", "d": "until" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q18",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "Please turn ___ the lights before leaving.",
-          "options": { "a": "off", "b": "up", "c": "after", "d": "around" },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q19",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "We were looking forward ___ everyone at the reunion.",
-          "options": { "a": "to see", "b": "for seeing", "c": "to seeing", "d": "to have seen" },
-          "correct": "c"
-        },
-        {
-          "id": "sb_q20",
-          "type": "grammar",
-          "section": "use_of_english",
-          "text": "Hardly had I sat down ___ the phone rang.",
-          "options": { "a": "as", "b": "when", "c": "until", "d": "after" },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q21",
-          "type": "listening",
-          "section": "listening",
-          "text": "Listen to the dialogue. What does the wife mean by her first comment?",
-          "audioText": "Wife: Had we known that they were going to build a motorway so close to us, I'd have thought twice about us buying this house.",
-          "options": {
-            "a": "I wish we hadn't bought this house.",
-            "b": "We ought to think again about buying this house.",
-            "c": "You should have reconsidered buying this house."
-          },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q22",
-          "type": "listening",
-          "section": "listening",
-          "text": "Listen to the dialogue. What does the man mean?",
-          "audioText": "Man: If I'd remembered her birthday, she wouldn't have been so upset.",
-          "options": {
-            "a": "He forgot her birthday and she was upset.",
-            "b": "He remembered her birthday too late.",
-            "c": "She wasn't upset because he remembered."
-          },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q23",
-          "type": "listening",
-          "section": "listening",
-          "text": "Listen to the dialogue. What does the woman mean?",
-          "audioText": "Woman: It's about time we replaced this old washing machine.",
-          "options": {
-            "a": "The washing machine is still quite new.",
-            "b": "The washing machine should be replaced now.",
-            "c": "The washing machine was replaced recently."
-          },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q24",
-          "type": "listening",
-          "section": "listening",
-          "text": "Listen to the dialogue. What does the man mean?",
-          "audioText": "Man: I can barely keep my eyes open after that meeting.",
-          "options": {
-            "a": "He feels extremely tired.",
-            "b": "He enjoyed the meeting.",
-            "c": "He wasn't paying attention."
-          },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q25",
-          "type": "listening",
-          "section": "listening",
-          "text": "Listen to the dialogue. What does the woman mean?",
-          "audioText": "Woman: I wish I'd listened to your advice.",
-          "options": {
-            "a": "She plans to follow the advice later.",
-            "b": "She regrets not listening.",
-            "c": "She doesn't remember the advice."
-          },
-          "correct": "b"
-        },
-        {
-          "id": "sb_q26",
-          "type": "reading",
-          "section": "reading",
-          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition. Her success has made her the face of this rapidly growing sport.",
-          "text": "What does the phrase 'strongest woman on Earth' refer to Courtney Gordon's success in?",
-          "options": {
-            "a": "Weightlifting",
-            "b": "Shot-put",
-            "c": "Archery",
-            "d": "Bodybuilding"
-          },
-          "correct": "a"
-        },
-        {
-          "id": "sb_q27",
-          "type": "reading",
-          "section": "reading",
-          "passage": "A grey morning in Hong Kong and I'm just setting off to photograph Courtney Gordon. In recent years she's come to be known as the 'strongest woman on Earth'. As a 13-year-old secondary school student growing up in Edinburgh, Scotland, she won the gold medal in the national archery competition. Not content to settle for success in one sport, however, she later became the national women's shot-put champion. It's safe to say Gordon is big news in the world of sport, having twice won the annual Women's World Weightlifting Competition. Her success has made her the face of this rapidly growing sport.",
-          "text": "How old was Courtney Gordon when she won the gold medal in the national archery competition?",
-          "options": {
-            "a": "13",
-            "b": "15",
-            "c": "17",
-            "d": "19"
-          },
-          "correct": "a"
         }
       ]
     }
   ],
-  "submissions": [
-    {
-      "id": "sub_1",
-      "examId": "exam_set_b",
-      "examTitle": "Oxford Placement Test - Set B (Full Evaluation)",
-      "studentName": "John Doe",
-      "studentEmail": "john.doe@university.edu",
-      "studentId": "U2026001",
-      "date": "2026-07-16T14:32:00Z",
-      "timeSpent": "22m 15s",
-      "tabSwitches": 0,
-      "tabSwitchLogs": [],
-      "score": 25,
-      "totalQuestions": 27,
-      "cefrLevel": "C2 (Proficient)",
-      "recommendation": "Highly Recommended",
-      "notes": "Excellent performance, shows strong command of grammar and vocabulary. Zero tab-switching activity detected."
-    },
-    {
-      "id": "sub_2",
-      "examId": "exam_set_b",
-      "examTitle": "Oxford Placement Test - Set B (Full Evaluation)",
-      "studentName": "Alice Smith",
-      "studentEmail": "alice.smith@gmail.com",
-      "studentId": "U2026042",
-      "date": "2026-07-16T16:10:00Z",
-      "timeSpent": "25m 02s",
-      "tabSwitches": 1,
-      "tabSwitchLogs": [
-        {
-          "awayAt": "2026-07-16T16:22:15Z",
-          "backAt": "2026-07-16T16:22:23Z",
-          "durationSeconds": 8
-        }
-      ],
-      "score": 19,
-      "totalQuestions": 27,
-      "cefrLevel": "B2 (Upper-Intermediate)",
-      "recommendation": "Recommended",
-      "notes": "Good performance overall. Only 1 tab switch detected (8 seconds away), which could be accidental."
-    },
-    {
-      "id": "sub_3",
-      "examId": "exam_set_a",
-      "examTitle": "Oxford Placement Test - Practice Set (CEFR Evaluation)",
-      "studentName": "Bob Miller",
-      "studentEmail": "bob.miller@hotmail.com",
-      "studentId": "U2026119",
-      "date": "2026-07-17T09:45:00Z",
-      "timeSpent": "12m 14s (Auto-submitted)",
-      "tabSwitches": 3,
-      "tabSwitchLogs": [
-        {
-          "awayAt": "2026-07-17T09:51:10Z",
-          "backAt": "2026-07-17T09:52:15Z",
-          "durationSeconds": 65
-        },
-        {
-          "awayAt": "2026-07-17T09:56:40Z",
-          "backAt": "2026-07-17T09:57:30Z",
-          "durationSeconds": 50
-        },
-        {
-          "awayAt": "2026-07-17T10:07:05Z",
-          "backAt": "2026-07-17T10:07:14Z",
-          "durationSeconds": 9
-        }
-      ],
-      "score": 8,
-      "totalQuestions": 15,
-      "cefrLevel": "B1 (Intermediate)",
-      "recommendation": "Flagged / Rejected",
-      "notes": "Auto-submitted after exceeding maximum allowed tab switches (3 warnings). High risk of cheating / looking up answers (total time away: 124 seconds)."
-    }
-  ]
+  "submissions": []
 }
