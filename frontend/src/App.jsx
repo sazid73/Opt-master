@@ -6,7 +6,11 @@ import {
   ShieldAlert, Play, Pause, Plus, Edit, PlusCircle, CheckSquare, Volume2, ListPlus
 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
+let API_BASE_RAW = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
+if (!API_BASE_RAW.endsWith('/api') && !API_BASE_RAW.endsWith('/api/')) {
+  API_BASE_RAW = API_BASE_RAW.replace(/\/$/, '') + '/api';
+}
+const API_BASE = API_BASE_RAW;
 console.log("OPT Master API Base configured to:", API_BASE);
 
 // Helper function to format time (seconds to MM:SS)
