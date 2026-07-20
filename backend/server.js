@@ -335,9 +335,15 @@ app.post('/api/submissions', async (req, res) => {
   exam.questions.forEach((q) => {
     const studentAns = answers[q.id];
     if (studentAns) {
-      // Case insensitive match
-      if (studentAns.toLowerCase() === q.correct.toLowerCase()) {
-        score++;
+      if (q.type === 'fill_in_the_blank') {
+        const possible = q.correct.toLowerCase().split(',').map(s => s.trim());
+        if (possible.includes(studentAns.toLowerCase().trim())) {
+          score++;
+        }
+      } else {
+        if (studentAns.toLowerCase().trim() === q.correct.toLowerCase().trim()) {
+          score++;
+        }
       }
     }
   });

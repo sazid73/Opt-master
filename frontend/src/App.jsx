@@ -828,74 +828,108 @@ function App() {
                   <p style={{ whiteSpace: 'pre-line' }}>{activeQuestion.passage}</p>
                 </div>
                 <div className="questions-pane">
-                  <h2 className="question-text">{currentQuestionIndex + 1}. {activeQuestion.text}</h2>
-                  
-                  {activeQuestion.type === 'fill_in_the_blank' ? (
-                    <div style={{ marginTop: '20px' }}>
-                      <label className="form-label">Type your answer:</label>
+                  {activeQuestion.type === 'fill_in_the_blank' && activeQuestion.text.includes('___') ? (
+                    <h2 className="question-text" style={{ lineHeight: '2.2' }}>
+                      {currentQuestionIndex + 1}. {activeQuestion.text.split('___')[0]}
                       <input 
                         type="text" 
                         className="form-input" 
-                        style={{ width: '100%', marginTop: '8px' }}
-                        placeholder="Enter the missing word..."
+                        style={{ display: 'inline-block', width: '150px', margin: '0 8px', padding: '6px 12px', textAlign: 'center' }}
+                        placeholder="type answer..."
                         value={answers[activeQuestion.id] || ''}
                         onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
                       />
-                    </div>
+                      {activeQuestion.text.split('___').slice(1).join('___')}
+                    </h2>
                   ) : (
-                    <div className="options-grid">
-                      {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
-                        if (!val) return null;
-                        return (
-                          <div 
-                            key={key} 
-                            className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
-                            onClick={() => handleSelectAnswer(activeQuestion.id, key)}
-                          >
-                            <div className="option-letter">{key.toUpperCase()}</div>
-                            <div className="option-val">{val}</div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <>
+                      <h2 className="question-text">{currentQuestionIndex + 1}. {activeQuestion.text}</h2>
+                      
+                      {activeQuestion.type === 'fill_in_the_blank' ? (
+                        <div style={{ marginTop: '20px' }}>
+                          <label className="form-label">Type your answer:</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            style={{ width: '100%', marginTop: '8px' }}
+                            placeholder="Enter the missing word..."
+                            value={answers[activeQuestion.id] || ''}
+                            onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
+                          />
+                        </div>
+                      ) : (
+                        <div className="options-grid">
+                          {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
+                            if (!val) return null;
+                            return (
+                              <div 
+                                key={key} 
+                                className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
+                                onClick={() => handleSelectAnswer(activeQuestion.id, key)}
+                              >
+                                <div className="option-letter">{key.toUpperCase()}</div>
+                                <div className="option-val">{val}</div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
             ) : (
               // Standard Layout for grammar & listening
               <>
-                <h2 className="question-text" style={{ marginTop: '16px' }}>
-                  {currentQuestionIndex + 1}. {activeQuestion.text}
-                </h2>
-
-                {activeQuestion.type === 'fill_in_the_blank' ? (
-                  <div style={{ marginTop: '20px' }}>
-                    <label className="form-label">Type your answer:</label>
+                {activeQuestion.type === 'fill_in_the_blank' && activeQuestion.text.includes('___') ? (
+                  <h2 className="question-text" style={{ marginTop: '16px', lineHeight: '2.2' }}>
+                    {currentQuestionIndex + 1}. {activeQuestion.text.split('___')[0]}
                     <input 
                       type="text" 
                       className="form-input" 
-                      style={{ width: '100%', marginTop: '8px', maxWidth: '400px' }}
-                      placeholder="Enter the missing word..."
+                      style={{ display: 'inline-block', width: '150px', margin: '0 8px', padding: '6px 12px', textAlign: 'center' }}
+                      placeholder="type answer..."
                       value={answers[activeQuestion.id] || ''}
                       onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
                     />
-                  </div>
+                    {activeQuestion.text.split('___').slice(1).join('___')}
+                  </h2>
                 ) : (
-                  <div className="options-grid" style={{ marginTop: '20px' }}>
-                    {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
-                      if (!val) return null;
-                      return (
-                        <div 
-                          key={key} 
-                          className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
-                          onClick={() => handleSelectAnswer(activeQuestion.id, key)}
-                        >
-                          <div className="option-letter">{key.toUpperCase()}</div>
-                          <div className="option-val">{val}</div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <>
+                    <h2 className="question-text" style={{ marginTop: '16px' }}>
+                      {currentQuestionIndex + 1}. {activeQuestion.text}
+                    </h2>
+
+                    {activeQuestion.type === 'fill_in_the_blank' ? (
+                      <div style={{ marginTop: '20px' }}>
+                        <label className="form-label">Type your answer:</label>
+                        <input 
+                          type="text" 
+                          className="form-input" 
+                          style={{ width: '100%', marginTop: '8px', maxWidth: '400px' }}
+                          placeholder="Enter the missing word..."
+                          value={answers[activeQuestion.id] || ''}
+                          onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
+                        />
+                      </div>
+                    ) : (
+                      <div className="options-grid" style={{ marginTop: '20px' }}>
+                        {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
+                          if (!val) return null;
+                          return (
+                            <div 
+                              key={key} 
+                              className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
+                              onClick={() => handleSelectAnswer(activeQuestion.id, key)}
+                            >
+                              <div className="option-letter">{key.toUpperCase()}</div>
+                              <div className="option-val">{val}</div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
                 )}
               </>
             )}
@@ -1585,8 +1619,10 @@ function App() {
                     return (
                       <div style={{ maxHeight: '400px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         {examObj.questions.map((q, idx) => {
-                          const ans = selectedSubmission.answers[q.id] || '-';
-                          const isCorrect = ans.toLowerCase() === q.correct.toLowerCase();
+                          const ans = (selectedSubmission.answers[q.id] || '-').trim();
+                          const isCorrect = q.type === 'fill_in_the_blank'
+                            ? q.correct.toLowerCase().split(',').map(s => s.trim()).includes(ans.toLowerCase())
+                            : ans.toLowerCase() === q.correct.toLowerCase().trim();
 
                           // Get the display text for student's answer
                           const studentAnswerDisplay = q.options && q.options[ans] 
@@ -1834,23 +1870,36 @@ function App() {
                         }}
                       >
                         <option value="grammar">Grammar & Vocab (Use of English)</option>
-                        <option value="listening">Listening Task</option>
-                        <option value="reading">Reading Comprehension</option>
+                        <option value="listening">Listening Task (Part 2)</option>
+                        <option value="reading">Reading Comprehension (Part 3 MCQ)</option>
+                        <option value="fill_in_the_blank">Fill-in-the-Blank (Cloze)</option>
                       </select>
                     </div>
 
                     <div className="form-group">
-                      <label className="form-label">Correct Option Key</label>
-                      <select 
-                        className="form-input" 
-                        value={editingQuestion.correct}
-                        onChange={(e) => setEditingQuestion({ ...editingQuestion, correct: e.target.value })}
-                      >
-                        <option value="a">A</option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
-                        <option value="d">D</option>
-                      </select>
+                      <label className="form-label">
+                        {editingQuestion.type === 'fill_in_the_blank' ? 'Correct Answer(s) (comma-separated)' : 'Correct Option Key'}
+                      </label>
+                      {editingQuestion.type === 'fill_in_the_blank' ? (
+                        <input 
+                          type="text" 
+                          className="form-input" 
+                          placeholder="e.g. setting, putting, going"
+                          value={editingQuestion.correct || ''}
+                          onChange={(e) => setEditingQuestion({ ...editingQuestion, correct: e.target.value })}
+                        />
+                      ) : (
+                        <select 
+                          className="form-input" 
+                          value={editingQuestion.correct}
+                          onChange={(e) => setEditingQuestion({ ...editingQuestion, correct: e.target.value })}
+                        >
+                          <option value="a">A</option>
+                          <option value="b">B</option>
+                          <option value="c">C</option>
+                          <option value="d">D</option>
+                        </select>
+                      )}
                     </div>
                   </div>
 
@@ -1896,63 +1945,67 @@ function App() {
                   </div>
 
                   {/* MCQ Choices */}
-                  <h4 style={{ fontSize: '13px', marginBottom: '10px', color: 'var(--text-secondary)' }}>Multiple Choice Options:</h4>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                    <div className="form-group">
-                      <label className="form-label">Option A</label>
-                      <input 
-                        type="text" 
-                        required 
-                        className="form-input"
-                        placeholder="Choice A content"
-                        value={editingQuestion.options ? editingQuestion.options.a : ''}
-                        onChange={(e) => setEditingQuestion({
-                          ...editingQuestion,
-                          options: { ...editingQuestion.options, a: e.target.value }
-                        })}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">Option B</label>
-                      <input 
-                        type="text" 
-                        required 
-                        className="form-input"
-                        placeholder="Choice B content"
-                        value={editingQuestion.options ? editingQuestion.options.b : ''}
-                        onChange={(e) => setEditingQuestion({
-                          ...editingQuestion,
-                          options: { ...editingQuestion.options, b: e.target.value }
-                        })}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">Option C (Optional)</label>
-                      <input 
-                        type="text" 
-                        className="form-input"
-                        placeholder="Choice C content"
-                        value={editingQuestion.options ? editingQuestion.options.c : ''}
-                        onChange={(e) => setEditingQuestion({
-                          ...editingQuestion,
-                          options: { ...editingQuestion.options, c: e.target.value }
-                        })}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">Option D (Optional)</label>
-                      <input 
-                        type="text" 
-                        className="form-input"
-                        placeholder="Choice D content"
-                        value={editingQuestion.options ? editingQuestion.options.d : ''}
-                        onChange={(e) => setEditingQuestion({
-                          ...editingQuestion,
-                          options: { ...editingQuestion.options, d: e.target.value }
-                        })}
-                      />
-                    </div>
-                  </div>
+                  {editingQuestion.type !== 'fill_in_the_blank' && (
+                    <>
+                      <h4 style={{ fontSize: '13px', marginBottom: '10px', color: 'var(--text-secondary)' }}>Multiple Choice Options:</h4>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                        <div className="form-group">
+                          <label className="form-label">Option A</label>
+                          <input 
+                            type="text" 
+                            required 
+                            className="form-input"
+                            placeholder="Choice A content"
+                            value={editingQuestion.options ? editingQuestion.options.a : ''}
+                            onChange={(e) => setEditingQuestion({
+                              ...editingQuestion,
+                              options: { ...editingQuestion.options, a: e.target.value }
+                            })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className="form-label">Option B</label>
+                          <input 
+                            type="text" 
+                            required 
+                            className="form-input"
+                            placeholder="Choice B content"
+                            value={editingQuestion.options ? editingQuestion.options.b : ''}
+                            onChange={(e) => setEditingQuestion({
+                              ...editingQuestion,
+                              options: { ...editingQuestion.options, b: e.target.value }
+                            })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className="form-label">Option C (Optional)</label>
+                          <input 
+                            type="text" 
+                            className="form-input"
+                            placeholder="Choice C content"
+                            value={editingQuestion.options ? editingQuestion.options.c : ''}
+                            onChange={(e) => setEditingQuestion({
+                              ...editingQuestion,
+                              options: { ...editingQuestion.options, c: e.target.value }
+                            })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className="form-label">Option D (Optional)</label>
+                          <input 
+                            type="text" 
+                            className="form-input"
+                            placeholder="Choice D content"
+                            value={editingQuestion.options ? editingQuestion.options.d : ''}
+                            onChange={(e) => setEditingQuestion({
+                              ...editingQuestion,
+                              options: { ...editingQuestion.options, d: e.target.value }
+                            })}
+                          />
+                        </div>
+                      </div>
+                    </>
+                  )}
 
                 </div>
 
