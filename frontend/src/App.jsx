@@ -808,39 +808,15 @@ function App() {
               </span>
             </div>
 
-            {/* Listening Audio Widget */}
-            {activeQuestion.type === 'listening' && (
-              <div className="card" style={{ backgroundColor: 'var(--bg-app)', borderLeft: '4px solid var(--info)', padding: '16px', margin: '16px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <button 
-                    type="button"
-                    className={`btn ${isPlayingAudio ? 'btn-danger' : 'btn-primary'}`}
-                    style={{ borderRadius: '50%', width: '48px', height: '48px', padding: 0 }}
-                    onClick={() => playTTSAudio(activeQuestion.audioText, activeQuestion.id)}
-                  >
-                    {isPlayingAudio ? <Pause size={20} /> : <Play size={20} fill="currentColor" />}
-                  </button>
-                  <div>
-                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 700 }}>Listen to Assessment Audio</h4>
-                    <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-secondary)' }}>
-                      Playback used: <strong>{audioPlayCount[activeQuestion.id] || 0} / 2</strong> (Max 2 plays allowed)
-                    </p>
-                  </div>
-                </div>
-
-                {/* Animated sound wave indicator */}
-                {isPlayingAudio && (
-                  <div style={{ display: 'flex', gap: '3px', alignItems: 'flex-end', height: '24px' }}>
-                    <div style={{ width: '3px', background: 'var(--info)', height: '100%', animation: 'bounce 0.6s ease infinite alternate' }}></div>
-                    <div style={{ width: '3px', background: 'var(--info)', height: '60%', animation: 'bounce 0.4s ease infinite alternate' }}></div>
-                    <div style={{ width: '3px', background: 'var(--info)', height: '80%', animation: 'bounce 0.8s ease infinite alternate' }}></div>
-                  </div>
-                )}
+            {/* Listening Dialogue Display */}
+            {activeQuestion.section === 'listening' && activeQuestion.dialogue && (
+              <div className="dialogue-box">
+                {activeQuestion.dialogue}
               </div>
             )}
 
             {/* Reading passage display (Split Layout) */}
-            {activeQuestion.type === 'reading' && activeQuestion.passage ? (
+            {activeQuestion.passage ? (
               <div className="split-pane">
                 <div className="passage-pane">
                   <h3 style={{ marginBottom: '10px', fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)' }}>Reading Comprehension Passage</h3>
@@ -848,8 +824,60 @@ function App() {
                 </div>
                 <div className="questions-pane">
                   <h2 className="question-text">{currentQuestionIndex + 1}. {activeQuestion.text}</h2>
-                  <div className="options-grid">
-                    {Object.entries(activeQuestion.options).map(([key, val]) => {
+                  
+                  {activeQuestion.type === 'fill_in_the_blank' ? (
+                    <div style={{ marginTop: '20px' }}>
+                      <label className="form-label">Type your answer:</label>
+                      <input 
+                        type="text" 
+                        className="form-input" 
+                        style={{ width: '100%', marginTop: '8px' }}
+                        placeholder="Enter the missing word..."
+                        value={answers[activeQuestion.id] || ''}
+                        onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="options-grid">
+                      {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
+                        if (!val) return null;
+                        return (
+                          <div 
+                            key={key} 
+                            className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
+                            onClick={() => handleSelectAnswer(activeQuestion.id, key)}
+                          >
+                            <div className="option-letter">{key.toUpperCase()}</div>
+                            <div className="option-val">{val}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              // Standard Layout for grammar & listening
+              <>
+                <h2 className="question-text" style={{ marginTop: '16px' }}>
+                  {currentQuestionIndex + 1}. {activeQuestion.text}
+                </h2>
+
+                {activeQuestion.type === 'fill_in_the_blank' ? (
+                  <div style={{ marginTop: '20px' }}>
+                    <label className="form-label">Type your answer:</label>
+                    <input 
+                      type="text" 
+                      className="form-input" 
+                      style={{ width: '100%', marginTop: '8px', maxWidth: '400px' }}
+                      placeholder="Enter the missing word..."
+                      value={answers[activeQuestion.id] || ''}
+                      onChange={(e) => handleSelectAnswer(activeQuestion.id, e.target.value)}
+                    />
+                  </div>
+                ) : (
+                  <div className="options-grid" style={{ marginTop: '20px' }}>
+                    {activeQuestion.options && Object.entries(activeQuestion.options).map(([key, val]) => {
                       if (!val) return null;
                       return (
                         <div 
@@ -863,30 +891,7 @@ function App() {
                       );
                     })}
                   </div>
-                </div>
-              </div>
-            ) : (
-              // Standard Layout for grammar & listening
-              <>
-                <h2 className="question-text" style={{ marginTop: '16px' }}>
-                  {currentQuestionIndex + 1}. {activeQuestion.text}
-                </h2>
-
-                <div className="options-grid" style={{ marginTop: '20px' }}>
-                  {Object.entries(activeQuestion.options).map(([key, val]) => {
-                    if (!val) return null;
-                    return (
-                      <div 
-                        key={key} 
-                        className={`option-card ${answers[activeQuestion.id] === key ? 'selected' : ''}`}
-                        onClick={() => handleSelectAnswer(activeQuestion.id, key)}
-                      >
-                        <div className="option-letter">{key.toUpperCase()}</div>
-                        <div className="option-val">{val}</div>
-                      </div>
-                    );
-                  })}
-                </div>
+                )}
               </>
             )}
           </div>
