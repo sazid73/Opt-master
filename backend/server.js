@@ -222,6 +222,7 @@ app.get('/api/exams', async (req, res) => {
     title: e.title,
     description: e.description,
     duration: e.duration,
+    isActive: e.isActive !== false,
     questionCount: e.questions.length
   }));
   res.json(examMetas);
@@ -250,6 +251,7 @@ app.get('/api/exams/:id', async (req, res) => {
     title: exam.title,
     description: exam.description,
     duration: exam.duration,
+    isActive: exam.isActive !== false,
     questions: questionsToSend
   });
 });
@@ -267,6 +269,7 @@ app.post('/api/exams', async (req, res) => {
     title,
     description: description || '',
     duration: Number(duration),
+    isActive: req.body.isActive !== false,
     questions: questions || []
   };
 
@@ -289,6 +292,7 @@ app.put('/api/exams/:id', async (req, res) => {
   if (title) db.exams[examIndex].title = title;
   if (description !== undefined) db.exams[examIndex].description = description;
   if (duration !== undefined) db.exams[examIndex].duration = Number(duration);
+  if (req.body.isActive !== undefined) db.exams[examIndex].isActive = req.body.isActive;
   if (questions) db.exams[examIndex].questions = questions;
 
   await writeDB(db);

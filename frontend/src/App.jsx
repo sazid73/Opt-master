@@ -107,8 +107,9 @@ function App() {
       const res = await fetch(`${API_BASE}/exams`);
       const data = await res.json();
       setAvailableExams(data);
-      if (data.length > 0 && !selectedExamId) {
-        setSelectedExamId(data[0].id);
+      const activeExams = data.filter(e => e.isActive !== false);
+      if (activeExams.length > 0 && !selectedExamId) {
+        setSelectedExamId(activeExams[0].id);
       }
     } catch (e) {
       console.error("Error fetching exams list", e);
@@ -525,6 +526,7 @@ function App() {
       title,
       description: desc,
       duration: dur,
+      isActive: editingExam.isActive !== false, // Default true
       questions: editingExam.questions || []
     };
 
@@ -718,7 +720,7 @@ function App() {
 
             <div className="form-group">
               <label className="form-label">Select Exam Set</label>
-              {availableExams.length === 0 ? (
+              {availableExams.filter(ex => ex.isActive !== false).length === 0 ? (
                 <div style={{ color: 'var(--text-muted)', fontSize: '13px' }}>No active exam sets configured on backend server.</div>
               ) : (
                 <select 
@@ -727,7 +729,7 @@ function App() {
                   onChange={(e) => setSelectedExamId(e.target.value)}
                   style={{ height: '48px', padding: '0 16px' }}
                 >
-                  {availableExams.map(ex => (
+                  {availableExams.filter(ex => ex.isActive !== false).map(ex => (
                     <option key={ex.id} value={ex.id}>
                       {ex.title} ({ex.questionCount} Questions - {Math.round(ex.duration / 60)} Mins)
                     </option>
@@ -801,7 +803,10 @@ function App() {
           <div className="question-container">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span className="badge badge-primary" style={{ textTransform: 'capitalize' }}>
-                {activeQuestion.section.replace(/_/g, ' ')} Task
+                {activeQuestion.section === 'use_of_english' ? 'Use of English Part 1' : 
+                 activeQuestion.section === 'listening' ? 'Use of English Part 2' : 
+                 activeQuestion.section === 'reading' ? 'Use of English Part 3' : 
+                 activeQuestion.section.replace(/_/g, ' ')} Task
               </span>
               <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
                 Question {currentQuestionIndex + 1} of {questions.length}
@@ -1355,6 +1360,7 @@ function App() {
                     <th>Description</th>
                     <th>Duration</th>
                     <th>Questions Count</th>
+                    <th>Active</th>
                     <th style={{ textAlign: 'right' }}>Actions</th>
                   </tr>
                 </thead>
@@ -1373,6 +1379,25 @@ function App() {
                         <td>{Math.round(ex.duration / 60)} minutes</td>
                         <td>
                           <span className="badge badge-primary">{ex.questions ? ex.questions.length : 0} Qs</span>
+                        </td>
+                        <td>
+                          <input 
+                            type="checkbox" 
+                            checked={ex.isActive !== false} 
+                            onChange={async (e) => {
+                              const updated = { ...ex, isActive: e.target.checked };
+                              try {
+                                await fetch(`${API_BASE}/exams/${ex.id}`, {
+                                  method: 'PUT',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify(updated)
+                                });
+                                loadAllAdminExamsData();
+                                fetchExams();
+                              } catch(err) {}
+                            }} 
+                            style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                          />
                         </td>
                         <td style={{ textAlign: 'right' }}>
                           <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
@@ -1549,18 +1574,54 @@ function App() {
                     if (!examObj) return <div>No exam questions matching to verify.</div>;
                     
                     return (
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', maxHeight: '200px', overflowY: 'auto' }}>
+                      <div style={{ maxHeight: '400px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         {examObj.questions.map((q, idx) => {
                           const ans = selectedSubmission.answers[q.id] || '-';
                           const isCorrect = ans.toLowerCase() === q.correct.toLowerCase();
+
+                          // Get the display text for student's answer
+                          const studentAnswerDisplay = q.options && q.options[ans] 
+                            ? `${ans.toUpperCase()}) ${q.options[ans]}` 
+                            : ans.toUpperCase();
+
+                          // Get the display text for correct answer
+                          const correctAnswerDisplay = q.options && q.options[q.correct] 
+                            ? `${q.correct.toUpperCase()}) ${q.options[q.correct]}` 
+                            : q.correct.toUpperCase();
+
+                          // Section label
+                          const sectionLabel = q.section === 'use_of_english' ? 'Part 1' : 
+                                               q.section === 'listening' ? 'Part 2' : 
+                                               q.section === 'reading' ? 'Part 3' : q.section;
+
                           return (
-                            <div key={q.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', padding: '6px 10px', background: 'var(--bg-app)', borderRadius: '4px', borderLeft: `3px solid ${isCorrect ? 'var(--success)' : 'var(--danger)'}` }}>
-                              <div>
-                                <span>Q{idx + 1} ({q.type}): Student answered <strong>{ans.toUpperCase()}</strong></span>
+                            <div key={q.id} style={{ padding: '14px', background: 'var(--bg-app)', borderRadius: '8px', borderLeft: `4px solid ${isCorrect ? 'var(--success)' : 'var(--danger)'}` }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                                <span style={{ fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)' }}>
+                                  Q{idx + 1} <span className={`badge ${isCorrect ? 'badge-success' : 'badge-danger'}`} style={{ marginLeft: '6px' }}>{isCorrect ? 'Correct' : 'Wrong'}</span>
+                                </span>
+                                <span className="badge badge-primary" style={{ fontSize: '11px' }}>{sectionLabel}</span>
                               </div>
-                              <span style={{ color: isCorrect ? 'var(--success)' : 'var(--danger)', fontWeight: 600 }}>
-                                {isCorrect ? "Correct" : `Correct: ${q.correct.toUpperCase()}`}
-                              </span>
+                              <div style={{ fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.5 }}>
+                                {q.text}
+                              </div>
+                              {q.dialogue && (
+                                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', fontStyle: 'italic', padding: '8px 12px', background: 'var(--bg-card)', borderRadius: '6px', borderLeft: '3px solid var(--info)', marginBottom: '8px' }}>
+                                  {q.dialogue}
+                                </div>
+                              )}
+                              <div style={{ display: 'flex', gap: '16px', fontSize: '12px', marginTop: '4px' }}>
+                                <div>
+                                  <span style={{ color: 'var(--text-muted)' }}>Student: </span>
+                                  <strong style={{ color: isCorrect ? 'var(--success)' : 'var(--danger)' }}>{studentAnswerDisplay}</strong>
+                                </div>
+                                {!isCorrect && (
+                                  <div>
+                                    <span style={{ color: 'var(--text-muted)' }}>Correct: </span>
+                                    <strong style={{ color: 'var(--success)' }}>{correctAnswerDisplay}</strong>
+                                  </div>
+                                )}
+                              </div>
                             </div>
                           );
                         })}
@@ -1627,6 +1688,19 @@ function App() {
                       onChange={(e) => setEditingExam({ ...editingExam, description: e.target.value })}
                       style={{ resize: 'vertical' }}
                     />
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px', padding: '12px 16px', background: 'var(--bg-app)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                    <input 
+                      type="checkbox" 
+                      id="examIsActiveEditor" 
+                      checked={editingExam.isActive !== false}
+                      onChange={(e) => setEditingExam({ ...editingExam, isActive: e.target.checked })}
+                      style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                    />
+                    <label htmlFor="examIsActiveEditor" style={{ cursor: 'pointer', fontWeight: 600, fontSize: '14px' }}>
+                      Enable this exam for student selection
+                    </label>
                   </div>
 
                   {/* Questions Editor Table */}

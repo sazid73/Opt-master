@@ -50,8 +50,9 @@ const listeningSet2 = listeningQs.slice(15, 30);
 const exam1 = {
   id: "opt_set_1",
   title: "Oxford Placement Test — Set 1",
-  description: "Assessment containing Use of English (20 Qs), Reading Dialogues (15 Qs), and Cloze Fill-in-the-blanks (7 Qs).",
+  description: "Use of English Part 1 (20 Grammar Qs), Part 2 (15 Dialogue Qs), Part 3 (7 Cloze Fill-in-the-blanks).",
   duration: 2700, // 45 mins
+  isActive: true,
   questions: [...grammarSet1, ...listeningSet1, ...readingQs]
 };
 
@@ -59,13 +60,17 @@ const exam1 = {
 const exam2 = {
   id: "opt_set_2",
   title: "Oxford Placement Test — Set 2",
-  description: "Assessment containing Use of English (20 Qs), Reading Dialogues (15 Qs), and Cloze Fill-in-the-blanks (7 Qs).",
+  description: "Use of English Part 1 (20 Grammar Qs), Part 2 (15 Dialogue Qs), Part 3 (7 Cloze Fill-in-the-blanks).",
   duration: 2700,
+  isActive: true,
   questions: [...grammarSet2, ...listeningSet2, ...readingQs]
 };
 
 // Update db.json
-db.exams = [exam1, exam2];
+db.exams.push(exam1, exam2);
+
+// Make original 77 set inactive by default so students don't see it (only Set 1 and Set 2)
+db.exams[0].isActive = false;
 
 fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2));
 
