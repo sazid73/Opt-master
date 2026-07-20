@@ -1385,16 +1385,25 @@ function App() {
                             type="checkbox" 
                             checked={ex.isActive !== false} 
                             onChange={async (e) => {
-                              const updated = { ...ex, isActive: e.target.checked };
+                              const newStatus = e.target.checked;
+                              // Optimistically update the UI immediately
+                              setAdminExams(adminExams.map(x => x.id === ex.id ? { ...x, isActive: newStatus } : x));
+                              setAvailableExams(availableExams.map(x => x.id === ex.id ? { ...x, isActive: newStatus } : x));
+                              
+                              const updated = { ...ex, isActive: newStatus };
                               try {
                                 await fetch(`${API_BASE}/exams/${ex.id}`, {
                                   method: 'PUT',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify(updated)
                                 });
+                                // We don't need to re-fetch immediately since we optimistically updated, 
+                                // but we can do it quietly in the background if we want.
+                              } catch(err) {
+                                console.error(err);
+                                // Revert on failure
                                 loadAllAdminExamsData();
-                                fetchExams();
-                              } catch(err) {}
+                              }
                             }} 
                             style={{ width: '18px', height: '18px', cursor: 'pointer' }}
                           />
